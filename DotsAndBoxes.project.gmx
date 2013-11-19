@@ -5,12 +5,19 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
-  <backgrounds name="background"/>
+  <sprites name="sprites">
+    <sprite>sprites\spCursor</sprite>
+    <sprite>sprites\spDot</sprite>
+  </sprites>
+  <backgrounds name="background">
+    <background>background\bgPaper</background>
+  </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
+    <object>objects\obDot</object>
     <object>objects\obGridMaker</object>
     <object>objects\obVars</object>
+    <object>objects\obCursor</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\game</room>
