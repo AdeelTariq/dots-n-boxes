@@ -29,6 +29,21 @@
 GRID_WIDTH = 16;
 globalvar GRID_HEIGHT;
 GRID_HEIGHT = 12;
+globalvar LINES_MAP;
+globalvar CHAR_MAP;
+CHAR_MAP = ds_map_create();
+
+for(i=0;i&lt;26;i++){
+ds_map_add(CHAR_MAP, string(i), chr(i+97));
+}
+ds_map_add(CHAR_MAP, "26", "aa");
+ds_map_add(CHAR_MAP, "27", "ab");
+ds_map_add(CHAR_MAP, "28", "ac");
+ds_map_add(CHAR_MAP, "29", "ad");
+ds_map_add(CHAR_MAP, "30", "ae");
+ds_map_add(CHAR_MAP, "31", "af");
+ds_map_add(CHAR_MAP, "32", "ag");
+
 </string>
           </argument>
         </arguments>

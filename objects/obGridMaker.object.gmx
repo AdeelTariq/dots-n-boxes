@@ -30,11 +30,26 @@ height = 600;
 box_size = 40;
 ini_x = width/2 - (GRID_WIDTH/2 * box_size); 
 ini_y = height/2 - (GRID_HEIGHT/2 * box_size);
-//show_debug_message("GRID:: size = " + string(GRID_SIZE));
+LINES_MAP = ds_map_create();
+k = 0; //for naming
 for(i=0;i&lt;=GRID_HEIGHT;i++){
     for(j=0;j&lt;=GRID_WIDTH;j++){
         instance_create(ini_x + (box_size * j),  ini_y + (box_size * i),obDot);
+        if j != GRID_WIDTH{
+            name = ds_map_find_value(CHAR_MAP, string(k))+string(j);
+            objct = instance_create(ini_x + (box_size * j) + 22,  ini_y + (box_size * i),obLine);
+            objct.name = name;
+            ds_map_add(CHAR_MAP, name, objct);
+        }
+        if i != GRID_HEIGHT{
+            name = ds_map_find_value(CHAR_MAP, string(k+1))+string(j);
+            line = instance_create(ini_x + (box_size * j),  ini_y + (box_size * i) + 22,obLine);
+            line.image_angle = 90;
+            line.name = name;
+            ds_map_add(CHAR_MAP, name, line);
+        }
     }
+    k += 2;
 }
 </string>
           </argument>
