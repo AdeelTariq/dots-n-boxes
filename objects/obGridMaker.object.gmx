@@ -39,14 +39,14 @@ for(i=0;i&lt;=GRID_HEIGHT;i++){
             name = ds_map_find_value(CHAR_MAP, string(k))+string(j);
             objct = instance_create(ini_x + (box_size * j) + 22,  ini_y + (box_size * i),obLine);
             objct.name = name;
-            ds_map_add(CHAR_MAP, name, objct);
+            ds_map_add(LINES_MAP, name, objct);
         }
         if i != GRID_HEIGHT{
             name = ds_map_find_value(CHAR_MAP, string(k+1))+string(j);
             line = instance_create(ini_x + (box_size * j),  ini_y + (box_size * i) + 22,obLine);
             line.image_angle = 90;
             line.name = name;
-            ds_map_add(CHAR_MAP, name, line);
+            ds_map_add(LINES_MAP, name, line);
         }
     }
     k += 2;
