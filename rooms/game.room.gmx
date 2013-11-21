@@ -53,6 +53,7 @@
     <instance objName="obVars" x="0" y="-32" name="inst_8A073DC5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obGridMaker" x="32" y="-32" name="inst_174AA03C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obCursor" x="64" y="-32" name="inst_09BD5B1D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obDrawer" x="96" y="-32" name="inst_B9E3F12B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -28,7 +28,49 @@
             <string>image_index = 0;
 image_speed = 0;
 id.drawn = false;
+prev = id.drawn;
 id.name = ""
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if prev==false and id.drawn==true{
+
+//find all the releted lines / c2
+if image_angle==0{  
+drawBox(id.name,'up');
+
+drawBox(id.name,'down');
+
+}else{      //vertical
+drawBox(id.name,'right');
+
+drawBox(id.name,'left');
+
+}
+//check if they are drawn
+//if yes complete the box and allow player to do another turn
+
+}
+prev = id.drawn;
 </string>
           </argument>
         </arguments>
@@ -101,49 +143,7 @@ image_index = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if id.drawn==false{
-//find all the releted lines / c2
-if image_angle==0{  
-up = getLineList(id.name,'up');
-total_drawn = 0;
-for(var i = 0;i &lt; array_length_1d(up);i++;){
-    line = ds_map_find_value(LINES_MAP,up[i]);
-    if (line.drawn==true)
-    { total_drawn += 1; }
-}
-
-if total_drawn==3{show_debug_message("Yesss!!");}//draw box
-
-down = getLineList(id.name,'down');
-total_drawn = 0;
-for(var i = 0;i &lt; array_length_1d(down);i++;){
-    if (ds_map_find_value(LINES_MAP,down[i]).drawn==true)
-    { total_drawn += 1; }
-}
-if total_drawn==3{show_debug_message("Yesss!!");}//draw box
-
-}else{      //vertical
-right = getLineList(id.name,'right');
-total_drawn = 0;
-for(var i = 0;i &lt; array_length_1d(right);i++;){
-    if (ds_map_find_value(LINES_MAP,right[i]).drawn==true)
-    { total_drawn += 1; }
-}
-if total_drawn==3{show_debug_message("Yesss!!");}//draw box
-
-left = getLineList(id.name,'left');
-total_drawn = 0;
-for(var i = 0;i &lt; array_length_1d(left);i++;){
-    if (ds_map_find_value(LINES_MAP,left[i]).drawn==true)
-    { total_drawn += 1; }
-}
-if total_drawn==3{show_debug_message("Yesss!!");}//draw box
-
-}
-//check if they are drawn
-//if yes complete the box and allow player to do another turn
-}
-id.drawn = true;
+            <string>id.drawn = true;
 image_index = 2;
 
 </string>

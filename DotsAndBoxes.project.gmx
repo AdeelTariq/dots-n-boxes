@@ -16,12 +16,15 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\getLineList.gml</script>
+    <script>scripts\drawBox.gml</script>
+    <script>scripts\isBoxComplete.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obLine</object>
     <object>objects\obDot</object>
     <object>objects\obGridMaker</object>
     <object>objects\obVars</object>
+    <object>objects\obDrawer</object>
     <object>objects\obCursor</object>
   </objects>
   <rooms name="rooms">
