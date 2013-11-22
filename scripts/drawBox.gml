@@ -19,27 +19,18 @@ for(var i = 0;i < array_length_1d(list);i++;){
     xx-=21;
     yy-=21;
     if is_array(BOXES){
-    n = array_height_2d(BOXES);
-    BOXES[n,0] = "A";
-    BOXES[n,1] = xx;
-    BOXES[n,2] = yy;
+        var n = array_height_2d(BOXES);
+        BOXES[n,0] = PLAYERS[CUR_PLAYER,0];
+        BOXES[n,1] = xx;
+        BOXES[n,2] = yy;
+        BOXES[n,3] = null;
     }else{
-    BOXES[0,0] = "A";
-    BOXES[0,1] = xx;
-    BOXES[0,2] = yy;
+        BOXES[0,0] = PLAYERS[CUR_PLAYER,0];;
+        BOXES[0,1] = xx;
+        BOXES[0,2] = yy;
+        BOXES[0,3] = null;
     }
+return true
+}else{
+return false
 }
-else if num==2{
-    //var list = getLineList(name,dir);
-    //for(var i = 0;i < array_length_1d(list);i++;){
-        //var line = ds_map_find_value(LINES_MAP,list[i]);
-        //if (line.drawn==false)
-        //{
-        //line.drawn = true;
-        //line.image_index = 2;
-        //}
-    //}
-}
-
-
-

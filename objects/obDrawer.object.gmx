@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="8" enumb="0">
+    <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,11 +25,60 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if is_array(BOXES){
+            <string>//player,x,y,id
+if is_array(BOXES){
     for(var i = 0;i &lt; array_height_2d(BOXES);i++;){
-    draw_set_color(c_red);
-    draw_rectangle(BOXES[i,1],BOXES[i,2],BOXES[i,1]+38,BOXES[i,2]+38,false);
+        if BOXES[i,3]==null{
+            BOXES[i,3] = instance_create(BOXES[i,1],BOXES[i,2],obBox);
+            BOXES[i,3].image_blend = PLAYERS[CUR_PLAYER,1];
+        }
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>p1 = 0;
+p2 = 0;
+if is_array(BOXES){
+    for(var i = 0;i &lt; array_height_2d(BOXES);i++;){
+        if BOXES[i,3].image_blend==PLAYERS[0,1]{
+            p1 += 1;
+        }else{
+            p2 += 1;
+            }
+    }
+}
+draw_set_font(font0);
+draw_set_color(PLAYERS[0,1]);
+draw_text(100,10,PLAYERS[0,0]);
+draw_set_color(PLAYERS[1,1]);
+draw_text(500,10,PLAYERS[1,0]);
+draw_set_color(c_black);
+draw_text(250,10,string(p1));
+draw_text(650,10,string(p2));
+if CUR_PLAYER==0{
+draw_rectangle(90,5,300,45,true);
+}else{
+draw_rectangle(490,5,700,45,true);
 }
 </string>
           </argument>

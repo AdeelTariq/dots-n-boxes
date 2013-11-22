@@ -52,23 +52,25 @@ id.name = ""
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if prev==false and id.drawn==true{
-
-//find all the releted lines / c2
-if image_angle==0{  
-drawBox(id.name,'up');
-
-drawBox(id.name,'down');
-
-}else{      //vertical
-drawBox(id.name,'right');
-
-drawBox(id.name,'left');
-
-}
+            <string>if prev==false &amp;&amp; id.drawn==true{
+//find all the releted lines 
 //check if they are drawn
 //if yes complete the box and allow player to do another turn
-
+    if image_angle==0{  
+        turn_not_end1 = drawBox(id.name,'up');
+        turn_not_end2 = drawBox(id.name,'down');
+        if turn_not_end1==false &amp;&amp; turn_not_end2==false {
+           //next player = (cur_player + 1) % len(players)
+            CUR_PLAYER = (CUR_PLAYER + 1) mod array_height_2d(PLAYERS);
+        }
+    }else{      //vertical
+        turn_not_end1 = drawBox(id.name,'right');
+        turn_not_end2 = drawBox(id.name,'left');
+        if turn_not_end1==false &amp;&amp; turn_not_end2==false{
+            //next player = (cur_player + 1) % len(players)
+            CUR_PLAYER = (CUR_PLAYER + 1) mod array_height_2d(PLAYERS);
+        }
+    }
 }
 prev = id.drawn;
 </string>

@@ -4,11 +4,11 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,54 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//max width 16, max height 12
-globalvar GRID_WIDTH;
-GRID_WIDTH = 0;
-globalvar GRID_HEIGHT;
-GRID_HEIGHT = 0;
-globalvar LINES_MAP;
-globalvar CHAR_MAP;
-
-for(i=0;i&lt;26;i++){
-CHAR_MAP[i] = chr(i+97);
-}
-CHAR_MAP[26] = "aa";
-CHAR_MAP[27] = "ab";
-CHAR_MAP[28] = "ac";
-CHAR_MAP[29] = "ad";
-CHAR_MAP[30] = "ae";
-CHAR_MAP[31] = "af";
-CHAR_MAP[32] = "ag";
-
-globalvar BOXES;
-BOXES = 0;
-
-globalvar END_TURN;
-END_TURN = false;
-
-globalvar PLAYERS;
-PLAYERS[0,0] = get_string("First player name?","player");
-PLAYERS[1,0] = get_string("Second player name?","player");
-PLAYERS[0,1] = c_orange;
-PLAYERS[1,1] = c_green;
-
-globalvar CUR_PLAYER;
-CUR_PLAYER = choose(0,1);
-
-if GRID_WIDTH==0{
-    GRID_WIDTH = abs(get_integer("Grid Width?",5));
-    if GRID_WIDTH&gt;16 GRID_WIDTH = 16;
-    GRID_HEIGHT = abs(get_integer("Grid Height?",5));
-    if GRID_HEIGHT&gt;12 GRID_HEIGHT = 12;
-}
-//next player = (cur_player + 1) % len(players)
-
+            <string>draw_set_font(font0);
+draw_set_color(c_black);
+draw_text(100,64,"INSTRUCTIONS :#The goal of the game is to connect all the#nodes or dots with lines and create boxes,#player who complete largest number of#boxes will be the winner.#Both players should enter their names and#the grid size too! (Max wid = 16 , Max hi = 12)#Click between dots to connect them#and form a line!#Press &lt;SPACE&gt; to restart game with current#settings anytime!#Wikipedia Article:#http://wikipedia.org/wiki/Dots_and_Boxes##Press &lt;Enter&gt; to continue now");
+draw_set_alpha(0.1);
+draw_text(570,570,"Font = RUDIMENT");
+draw_set_alpha(1);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="32">
+    <event eventtype="9" enumb="13">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -89,8 +53,7 @@ if GRID_WIDTH==0{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_restart();
-CUR_PLAYER = choose(0,1);
+            <string>room_goto(game);
 </string>
           </argument>
         </arguments>
